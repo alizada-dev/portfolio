@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@layer components {
+    .img__bg {
+        @apply bg-[url(/images/hero-img.jpg)] bg-no-repeat bg-center bg-cover h-screen
+    }
+    .button__primary {
+        @apply text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-6 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 cursor-pointer;
+    }
+
+    .button__secondary {
+        @apply text-blue-600 border-2 text-lg tracking-normal font-medium border-blue-600 hover:bg-blue-600 hover:text-white rounded-full px-8 py-2.5 mb-2 me-2 cursor-pointer transform transition-colors duration-300;
+    }
+
+    .button__green {
+        @apply text-white border-2 text-lg tracking-normal font-medium border-green-300 hover:bg-green-300 hover:text-gray-800 rounded-full px-8 py-2.5 mb-2 me-2 cursor-pointer transform transition-colors duration-300;
+    }
+
+    .page-width {
+        @apply px-8
+    }
+
+    .section {
+        @apply py-20
+    }
+
+    .tab-btn {
+        @apply relative block cursor-pointer p-2 tracking-widest transition duration-300 before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-blue-400 before:transition-all before:duration-300 hover:before:w-full;
+    }
+
+    .content {
+        @apply hidden;
+    }
+
+    .content.active {
+        @apply block;
+    }
+
+    .tab-btn.active {
+        @apply bg-blue-500 text-white;
+    }
+}

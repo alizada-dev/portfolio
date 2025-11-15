@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.16",
+    "alpinejs": "^3.15.1",
+    "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.49"
+  }
+}

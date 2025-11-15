@@ -1,0 +1,7 @@
+Set up (Portfolio):
+.specify font (Roboto)
+.get font awesome
+.install tailwindcss cli
+.install alpine JS
+.prepare imgs
+.write css codes in directory for btn, title, title underline, section, tab btns,

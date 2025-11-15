@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9aa85e9d7c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="./dist/app.js"></script>
+    <title>Fida Ali Zada</title>
+  </head>
+  <body>
+    <nav class="page-width py-2 sticky z-10 border-b border-gray-300">
+      <div class="flex justify-between items-center align-middle">
+        <div class="logo__container">
+          <a href="#" class="logo">
+            <img
+              src="./images/logo.png"
+              alt="logo"
+              class="w-20 h-20 rounded-full"
+            />
+          </a>
+          <button class="hidden" aria-label="Toggle navigation">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="overflow-hidden flex gap-6 items-center align-middle">
+          <div>
+            <a href="#">About Me</a>
+          </div>
+          <div class="button__secondary">Say Hello</div>
+        </div>
+      </div>
+    </nav>
+    <!-- hero -->
+    <header class="h-96 flex justify-center items-center text-center" x-data>
+      <!-- hero content -->
+      <div class="banner max-w-4xl px-6">
+        <h1 class="text-5xl font-bold leading-tight">
+          Frondend & Shopify Developer
+        </h1>
+        <p class="mt-4 text-lg">
+          I design and code beautifully simple things, and I love what I do.
+        </p>
+        <button
+          @click="$dispatch('open-modal')"
+          class="modal-btn capitalize text-center cursor-pointer mt-12 px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg transition"
+        >
+          Get in Touch
+        </button>
+      </div>
+    </header>
+    <!-- end of hero -->
+    <!-- modal -->
+    <div
+      x-data="{ isOpen: false }"
+      x-show="isOpen"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition ease-in duration-300"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      @open-modal.window="isOpen = true"
+      class="modal-overlay fixed inset-0 bg-black/50 flex items-center justify-center z-20"
+    >
+      <div
+        @click.away="isOpen = false"
+        class="modal-container bg-white py-6 md:py-10 rounded-md shadow-lg w-3/4 h-auto max-w-4xl md:p-6 text-center relative"
+      >
+        <button
+          @click="isOpen = false"
+          class="close-btn text-2xl cursor-pointer absolute top-4 right-4 text-gray-600 hover:text-red-600 transition"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-content px-8">
+          <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
+          <p class="mb-6">
+            I'm currently open to new opportunities and collaborations. Whether
+            you have a question or just want to say hi, feel free to reach out!
+          </p>
+          <a
+            href="mailto:fida@example.com"
+            class="text-blue-600 hover:underline"
+          >
+            fida@example.com
+          </a>
+        </div>
+
+        <div class="flex justify-center gap-4 mt-6">
+          <a href="#" class="text-gray-600 hover:text-blue-600 transition">
+            <i class="fa-brands fa-github fa-xl"></i>
+          </a>
+          <a href="#" class="text-gray-600 hover:text-blue-600 transition">
+            <i class="fa-brands fa-linkedin fa-xl"></i>
+          </a>
+          <a href="#" class="text-gray-600 hover:text-blue-600 transition">
+            <i class="fa-brands fa-twitter fa-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- end of modal -->
+
+    <!-- img section starts -->
+    <div class="flex items-center justify-center md:pt-18">
+      <img src="./images/programming.svg" alt="" class="size-3/5" />
+    </div>
+    <!-- img section ends -->
+    <!-- about me section -->
+    <section class="bg-blue-600 flex justify-center items-center min-h-screen">
+      <div class="text-center max-w-3xl w-full px-4">
+        <h1 class="text-white text-4xl font-bold mb-6">
+          Hi, I am Fida. Nice to meet you.
+        </h1>
+        <h2 class="text-white text-xl">
+          I am an adaptable individual with a background in business management
+          and a passion for web development. I am eager to bring real change and
+          solve real-world challenges through clean, scalable code, having
+          hands-on skills in Shopify development, responsive design, and modern
+          front-end technologies.
+        </h2>
+      </div>
+    </section>
+    <!-- about me section ends -->
+
+    <!-- skills section -->
+    <section id="skills" class="py-18">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-12 my-0 mx-6 lg:mx-16 mt-20"
+      >
+        <article
+          class="about grid grid-rows-[auto_1fr]"
+          x-data="{
+              openTab(el) {
+                document.querySelectorAll('.tab-btn').forEach((btn) => {
+                      btn.classList.remove('active');
+                    });
+                    el.classList.add('active');
+                    document.querySelectorAll('.content').forEach((content) => {
+                      content.classList.remove('active');
+                    });
+                    document.getElementById(el.dataset.id).classList.add('active');
+              }
+            }
+          "
+          x-init="openTab($refs.firstTab)"
+        >
+          <!-- btn container -->
+          <div class="btn-container grid grid-cols-3 shadow-md">
+            <button
+              x-ref="firstTab"
+              @click="openTab($el)"
+              class="tab-btn"
+              data-id="frontend"
+            >
+              Frontend Development
+            </button>
+            <button
+              @click="
+              openTab($el);
+              "
+              class="tab-btn"
+              data-id="shopify"
+            >
+              Shopify Development
+            </button>
+            <button
+              @click="
+                openTab($el);
+              "
+              class="tab-btn"
+              data-id="version-control"
+            >
+              Version Control
+            </button>
+          </div>
+          <article class="skill_content">
+            <!-- single item -->
+            <div
+              class="content bg-white p-10 shadow-lg rounded-lg"
+              id="frontend"
+            >
+              <div class="max-w-2xl mx-auto text-center space-y-6">
+                <p class="text-base text-black leading-relaxed">
+                  I like to code things from scratch and enjoy bringing ideas to
+                  life in the browser.
+                </p>
+
+                <ul class="grid grid-cols-1 gap-6">
+                  <li class="flex justify-center space-x-3">
+                    <span class="font-semibold text-lg border-b-2 text-blue-600"
+                      >Dev tools:</span
+                    >
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fab fa-html5 text-orange-500 text-xl"></i>
+                    <span class="font-semibold text-gray-800">HTML</span>
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fab fa-css3-alt text-blue-500 text-xl"></i>
+                    <span class="font-semibold text-gray-800">CSS</span>
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fab fa-js text-yellow-500 text-xl"></i>
+                    <span class="font-semibold text-gray-800">JavaScript</span>
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fa-solid fa-code text-indigo-500 text-xl"></i>
+                    <span class="font-semibold text-gray-800">Alpine JS</span>
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fa-brands fa-css text-teal-500 text-xl"></i>
+                    <span class="font-semibold text-gray-800"
+                      >Tailwind CSS</span
+                    >
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fa-brands fa-codepen text-gray-600 text-xl"></i>
+                    <span class="font-semibold text-gray-800">VS Code</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- end of single item -->
+
+            <!-- single item -->
+            <div
+              class="content bg-white p-10 shadow-lg rounded-lg"
+              id="shopify"
+            >
+              <div class="max-w-2xl mx-auto text-center space-y-6">
+                <p class="text-base text-black leading-relaxed">
+                  I like to customize your Shopify theme and make commerce
+                  experience easy and enjoyable.
+                </p>
+                <ul class="grid grid-cols-1 gap-6">
+                  <li class="flex justify-center space-x-3">
+                    <span class="font-semibold text-lg border-b-2 text-blue-600"
+                      >Dev tools:</span
+                    >
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fa-solid fa-water text-blue-600 text-xl"></i>
+                    <span class="font-semibold text-gray-800">Liquid</span>
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <span class="font-semibold text-gray-800">Themes</span>
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fa-solid fa-terminal text-green-600 text-xl"></i>
+                    <span class="font-semibold text-gray-800"
+                      >Shopify APIs</span
+                    >
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fa-solid fa-web-awesome text-xl"></i>
+                    <span class="font-semibold text-gray-800"
+                      >Responive Design</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- end of single item -->
+
+            <!-- single item -->
+            <div
+              class="content bg-white p-10 shadow-lg rounded-lg"
+              id="version-control"
+            >
+              <div class="max-w-2xl mx-auto text-center space-y-6">
+                <p class="text-base text-black leading-relaxed">
+                  I am proficient in using version control systems to manage and
+                  track changes in my codebase, ensuring efficient collaboration
+                  and code integrity.
+                </p>
+                <ul class="grid grid-cols-1 gap-6">
+                  <li class="flex justify-center space-x-3">
+                    <span class="font-semibold text-lg border-b-2 text-blue-600"
+                      >Dev tools:</span
+                    >
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fa-brands fa-git text-blue-600 text-xl"></i>
+                    <span class="font-semibold text-gray-800">Git</span>
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="font-semibold text-gray-800">GitHub</span>
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i
+                      class="fa-solid fa-code-branch text-green-600 text-xl"
+                    ></i>
+                    <span class="font-semibold text-gray-800">Branching</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- end of single item -->
+          </article>
+        </article>
+        <article>
+          <img
+            class="object-cover"
+            src="./images/job-hunt.svg"
+            alt="about image"
+          />
+        </article>
+      </div>
+    </section>
+    <!-- end of tab section -->
+
+    <section class="py-14 bg-blue-950">
+      <div
+        class="page-width grid md:grid-cols-3 sm:grid-cols-2 gap-6 items-center text-center mx-auto"
+      >
+        <div class="text-white">
+          <h3 class="text-4xl font-bold">Start a project</h3>
+        </div>
+        <div class="text-white">
+          <p class="mt-2 text-lg">
+            Interested in working together? We should queue up a time to chat. I
+            will buy the coffee.
+          </p>
+        </div>
+        <div class="text-white">
+          <button
+            class="button__green text-xl flex items-center justify-center gap-6 mx-auto"
+          >
+            <i class="fa-solid fa-hand-point-up"></i>
+            <a href="#contact">Let's do this</a>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- testimonials section -->
+    <section id="Testimonial" class="py-10">
+      <!-- title & description -->
+      <div class="text-center">
+        <h2 class="text-3xl sm:text-3xl font-bold capitalize leading-tight">
+          Testimonials
+        </h2>
+        <p
+          class="my-4 w-4/5 sm:w-4/5 md:w-3/5 mx-auto text-base sm:text-lg md:text-lg text-center"
+        >
+          People I've worked with have said some nice things...
+        </p>
+      </div>
+      <!-- testimonials -->
+      <div
+        class="container mt-8 w-full sm:w-3/4 md:w-2/3 mx-auto"
+        x-data="{
+          reviews: [
+            {
+              name: 'john doe',
+              job: 'web developer',
+              image: './images/testimonials/Ahmed-Asghari-Designer.webp',
+              text:
+                'If you are an existing customer and in need of emergency technical support, please contact us below. Our technical team will get in touch with you immediately.',
+            },
+            {
+              name: 'hujjat asghari',
+              job: 'graphic designer',
+              image: './images/testimonials/Hujatulla-Asghari.webp',
+              text:
+                'Fida is a highly skilled developer who consistently delivers top-notch work. His attention to detail and problem-solving abilities are impressive.',
+            },
+            {
+              name: 'Uffaq Khan',
+              job: 'PhD Researcher',
+              image: './images/logo.png',
+              text:
+                'You can cry. You can grind, but you can never give up. His attention to detail and problem-solving abilities are impressive.',
+            },
+          ],
+          currentIndex: 0,
+          get currentReview() {
+            return this.reviews[this.currentIndex];
+          },
+          nextReview() {
+            this.currentIndex =
+              (this.currentIndex + 1) % this.reviews.length;
+          },
+          prevReview() {
+            this.currentIndex =
+              (this.currentIndex - 1 + this.reviews.length) %
+              this.reviews.length;
+          },
+        }"
+        x-init="
+          let interval = setInterval(() => { nextReview() }, 5000)
+          $el.addEventListener('mouseenter', () => clearInterval(interval))
+          $el.addEventListener('mouseleave', () => {
+            interval = setInterval(() => { nextReview() }, 5000)
+          })"
+      >
+        <article
+          x-bind:key="currentIndex"
+          class="testimonial grid place-items-center text-center p-8"
+          x-show="currentReview"
+          x-transition:enter="transition ease-out duration-500"
+          x-transition:enter-start="opacity-0 translate-x-6"
+          x-transition:enter-end="opacity-100 translate-y-0"
+          x-transition:leave="transition ease-in duration-300"
+          x-transition:leave-start="opacity-100 translate-y-0"
+          x-transition:leave-end="opacity-0 translate-x-6"
+        >
+          <div class="img-container relative rounded-full w-30 h-30">
+            <img
+              :src="currentReview.image"
+              class="w-full h-full block object-cover rounded-full relative"
+              id="person-img"
+              alt="Reviewer Picture"
+            />
+          </div>
+          <h4
+            id="author"
+            class="font-bold text-xl mt-4 capitalize"
+            x-text="currentReview.name"
+          ></h4>
+          <p
+            id="job"
+            class="capitalize text-gray-500 text-base my-3"
+            x-text="currentReview.job"
+          ></p>
+          <p
+            id="info"
+            class="text-base sm:text-lg md:text-xl mt-3"
+            x-text="currentReview.text"
+          ></p>
+          <!-- Carousel Dots -->
+          <div class="flex justify-center mt-12 space-x-3">
+            <template x-for="(review, index) in reviews" :key="index">
+              <button
+                @click="currentIndex = index"
+                :class="{
+                    'bg-blue-500': currentIndex === index,
+                    'border border-gray-400': currentIndex !== index
+                  }"
+                class="w-4 h-4 rounded-full transition duration-300 cursor-pointer"
+              ></button>
+            </template>
+          </div>
+
+          <!-- <div class="button-container mt-6 flex gap-8">
+            <button
+              @click="prevReview"
+              aria-label="Previous review"
+              class="prev-btn cursor-pointer hover:text-blue-500 transition"
+            >
+              <i class="fa-solid text-2xl fa-circle-left"></i>
+            </button>
+            <button
+              @click="nextReview"
+              aria-label="Next review"
+              class="next-btn cursor-pointer hover:text-blue-500 transition"
+            >
+              <i class="fa-solid text-2xl fa-circle-right"></i>
+            </button>
+          </div> -->
+        </article>
+      </div>
+    </section>
+    <!-- end of testimonial section -->
+
+    <!-- project section -->
+    <section class="border-t border-gray-300 py-16 px-6 sm:px-12 lg:px-24">
+      <div class="max-w-4xl mx-auto">
+        <h2
+          class="text-3xl font-bold text-gray-800 mb-10 flex items-center gap-3"
+        >
+          Projects & Practical Experience
+        </h2>
+
+        <!-- Project Card -->
+        <div class="space-y-8">
+          <!-- Shopify Storefront Clone -->
+          <div
+            class="bg-white shadow-md rounded-lg p-6 border-l-4 border-blue-500"
+          >
+            <h3 class="text-xl font-semibold text-gray-800">
+              Shopify Storefront Clone
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">Personal Project</p>
+            <ul class="list-disc list-inside space-y-2 text-gray-700">
+              <li>
+                Built a fully responsive Shopify storefront using Liquid, HTML,
+                CSS, and JavaScript
+              </li>
+              <li>Integrated dynamic product pages and cart functionality</li>
+              <li>Customized themes and templates to match brand identity</li>
+            </ul>
+          </div>
+
+          <!-- Portfolio Website -->
+          <div
+            class="bg-white shadow-md rounded-lg p-6 border-l-4 border-blue-500"
+          >
+            <h3 class="text-xl font-semibold text-gray-800">
+              Portfolio Website
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">Personal Project</p>
+            <ul class="list-disc list-inside space-y-2 text-gray-700">
+              <li>
+                Designed and developed a personal portfolio using Tailwind CSS
+                and JavaScript/ Alpine.js
+              </li>
+              <li>Showcased projects, contact form, and responsive layout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end of project section -->
+
+    <!-- video section  -->
+    <section class="relative">
+      <!-- video section content -->
+      <div class="relative grid place-items-center min-h-screen"
+          x-data="{ isPlaying: false }"
+          x-ref="container">
+        <video
+          x-ref="video"
+          class="video-container absolute top-0 left-0 w-full h-full object-cover -z-20"
+          muted
+          loop
+        >
+          <source src="./video/video.mp4" type="video/mp4" />
+        </video>
+        <!-- overlay on the video -->
+        <div class="absolute inset-0 bg-black/70 -z-10"></div>
+        <h1 class="text-white text-7xl font-bold">Dawn Theme</h1>
+        <!-- video switch buttons -->
+        <button
+          @click="isPlaying ? $refs.video.pause() : $refs.video.play(); isPlaying = !isPlaying"
+          class="switch-btn absolute bottom-7 left-7 flex items-center justify-around bg-white border-0 w-30 h-8 rounded-md cursor-pointer"
+        >
+        <span x-text="isPlaying ? 'Pause' : 'Play'" class="text-blue-600 font-semibold"></span>
+        </button>
+      </div>
+    </section>
+    <!-- end of video section  -->
+
+    <!-- contact section -->
+    <section class="bg-white">
+      <div class="py-8 lg:py-16 px-4 mx-auto max-w-3xl">
+        <p class="mb-8 lg:mb-16 text-center text-4xl leading-snug">
+          I am excited to learn about your project. Ready to get started?
+        </p>
+        <form action="#" class="space-y-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block mb-2 text-lg text-gray-500"
+                >Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                class="border border-gray-300 text-gray-900 focus:ring-primary-500 focus:border-primary-500 w-full p-2.5"
+                placeholder="Fida Ali Zada"
+                required
+              />
+            </div>
+            <div>
+              <label for="email" class="block mb-2 text-lg text-gray-500"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                class="border border-gray-300 text-gray-900 focus:ring-primary-500 focus:border-primary-500 w-full p-2.5"
+                placeholder="fida@gmail.com"
+                required
+              />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="project" class="block mb-2 text-lg text-gray-500"
+                >Type of Project</label
+              >
+              <select
+                name="project"
+                id="project"
+                class="block p-3 w-full text-gray-900 border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+              >
+                <option value="" disabled selected>
+                  Select a project type
+                </option>
+                <option value="responsive">Responsive Design</option>
+                <option value="web">Web Application</option>
+                <option value="shopify">Shopify Theme</option>
+              </select>
+            </div>
+            <div>
+              <label for="budget" class="block mb-2 text-lg text-gray-500"
+                >Budget</label
+              >
+              <!-- change the color of arrow icon in the select element with tailwind css -->
+
+              <select
+                name="budget"
+                id="budget"
+                class="block p-3 w-full text-gray-900 border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+              >
+                <option value="" disabled selected>Select your budget</option>
+                <option value="less-1000">Less than $1000</option>
+                <option value="1000-5000">$1000 - $5000</option>
+                <option value="more-5000">More than $5000</option>
+              </select>
+            </div>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="message" class="block mb-2 text-lg text-gray-500"
+              >Message</label
+            >
+            <textarea
+              id="message"
+              rows="6"
+              class="block p-2.5 w-full text-gray-900 border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+              placeholder="Leave a comment..."
+            ></textarea>
+          </div>
+          <button type="submit" class="button__secondary sm:w-fit">
+            Send message
+          </button>
+        </form>
+      </div>
+    </section>
+    <!-- end of contact section -->
+
+    <footer class="mt-18 bg-gray-300">
+      <div class="page-width py-6 border-t border-gray-300 text-center">
+        <p class="text-gray-600">
+          &copy; 2024 Fida Ali Zada. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
