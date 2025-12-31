@@ -18,30 +18,32 @@
     <title>Fida Ali Zada</title>
   </head>
   <body>
-    <nav class="page-width py-2 sticky z-10 border-b border-gray-300">
-      <div class="flex justify-between items-center align-middle">
-        <div class="logo__container">
-          <a href="#" class="logo">
-            <img
-              src="./images/logo.png"
-              alt="logo"
-              class="w-20 h-20 rounded-full"
-            />
-          </a>
-          <button class="hidden" aria-label="Toggle navigation">
-            <i class="fa fa-bars" aria-hidden="true"></i>
-          </button>
-        </div>
-        <div class="overflow-hidden flex gap-6 items-center align-middle">
-          <div>
-            <a href="#">About Me</a>
+    <header>
+      <nav class="page-width py-2 sticky z-10 border-b border-gray-300">
+        <div class="flex justify-between items-center align-middle">
+          <div class="logo__container">
+            <a href="#" class="logo">
+              <img
+                src="./images/logo.png"
+                alt="logo"
+                class="w-20 h-20 rounded-full"
+              />
+            </a>
+            <button class="hidden" aria-label="Toggle navigation">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
           </div>
-          <div class="button__secondary">Say Hello</div>
+          <div class="overflow-hidden flex gap-6 items-center align-middle">
+            <div>
+              <a href="#">About Me</a>
+            </div>
+            <div class="button__secondary">Say Hello</div>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
     <!-- hero -->
-    <header class="h-96 flex justify-center items-center text-center" x-data>
+    <div class="h-96 flex justify-center items-center text-center" x-data>
       <!-- hero content -->
       <div class="banner max-w-4xl px-6">
         <h1 class="text-5xl font-bold leading-tight">
@@ -57,7 +59,7 @@
           Get in Touch
         </button>
       </div>
-    </header>
+    </div>
     <!-- end of hero -->
     <!-- modal -->
     <div
@@ -111,14 +113,15 @@
       </div>
     </div>
     <!-- end of modal -->
-
     <!-- img section starts -->
-    <div class="flex items-center justify-center md:pt-18">
-      <img src="./images/programming.svg" alt="" class="size-3/5" />
-    </div>
+      <!-- 
+      <div class="flex items-center justify-center md:pt-18">
+        <img src="./images/programming.svg" alt="" class="size-3/5" />
+      </div>
+      -->
     <!-- img section ends -->
     <!-- about me section -->
-    <section class="bg-blue-600 flex justify-center items-center min-h-screen">
+    <section class="bg-blue-600 flex justify-center items-center py-16">
       <div class="text-center max-w-3xl w-full px-4">
         <h1 class="text-white text-4xl font-bold mb-6">
           Hi, I am Fida. Nice to meet you.
@@ -212,18 +215,18 @@
                     <span class="font-semibold text-gray-800">CSS</span>
                   </li>
                   <li class="flex justify-center space-x-3">
+                    <i class="fa-brands fa-css text-teal-500 text-xl"></i>
+                    <span class="font-semibold text-gray-800"
+                      >Tailwind CSS</span
+                    >
+                  </li>
+                  <li class="flex justify-center space-x-3">
                     <i class="fab fa-js text-yellow-500 text-xl"></i>
                     <span class="font-semibold text-gray-800">JavaScript</span>
                   </li>
                   <li class="flex justify-center space-x-3">
                     <i class="fa-solid fa-code text-indigo-500 text-xl"></i>
                     <span class="font-semibold text-gray-800">Alpine JS</span>
-                  </li>
-                  <li class="flex justify-center space-x-3">
-                    <i class="fa-brands fa-css text-teal-500 text-xl"></i>
-                    <span class="font-semibold text-gray-800"
-                      >Tailwind CSS</span
-                    >
                   </li>
                   <li class="flex justify-center space-x-3">
                     <i class="fa-brands fa-codepen text-gray-600 text-xl"></i>
@@ -252,11 +255,15 @@
                   </li>
                   <li class="flex justify-center space-x-3">
                     <i class="fa-solid fa-water text-blue-600 text-xl"></i>
-                    <span class="font-semibold text-gray-800">Liquid</span>
+                    <span class="font-semibold text-gray-800"
+                      >Shopify Liquid</span
+                    >
                   </li>
                   <li class="flex justify-center space-x-3">
                     <i class="fa-solid fa-cart-shopping text-xl"></i>
-                    <span class="font-semibold text-gray-800">Themes</span>
+                    <span class="font-semibold text-gray-800"
+                      >Shopiy Themes</span
+                    >
                   </li>
                   <li class="flex justify-center space-x-3">
                     <i class="fa-solid fa-terminal text-green-600 text-xl"></i>
@@ -299,6 +306,10 @@
                   <li class="flex justify-center space-x-3">
                     <i class="fa-brands fa-github"></i>
                     <span class="font-semibold text-gray-800">GitHub</span>
+                  </li>
+                  <li class="flex justify-center space-x-3">
+                    <i class="fa-solid fa-code-commit"></i>
+                    <span class="font-semibold text-gray-800">Version control</span>
                   </li>
                   <li class="flex justify-center space-x-3">
                     <i
@@ -531,89 +542,146 @@
     <section class="py-16 bg-gray-100">
       <div class="page-width mx-auto">
         <h2 class="text-3xl font-bold text-center mb-10">FAQs</h2>
-        <div class="space-y-4 max-w-3xl mx-auto" x-data="{ open: null }">
+        <div class="space-y-4 max-w-3xl mx-auto" x-data="{ expanded: null }">
           <!-- Question 1 -->
           <div>
-            <div class="flex flex-row justify-between cursor-pointer"
-                @click="open === 1 ? open = null: open = 1">
+            <div
+              class="flex flex-row justify-between cursor-pointer"
+              @click="expanded === 1 ? expanded = null: expanded = 1"
+            >
               <h3 class="text-lg font-semibold mb-2">
                 What is your development process?
               </h3>
               <span>
-                <template x-if="open !== 1">
+                <template x-if="expanded !== 1">
                   <!-- Plus icon -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5" viewBox="0 0 640 640">
-                    <path d="M352 128C352 110.3 337.7 96 320 96C302.3 96 288 110.3 288 128L288 288L128 288C110.3 288 96 302.3 96 320C96 337.7 110.3 352 128 352L288 352L288 512C288 529.7 302.3 544 320 544C337.7 544 352 529.7 352 512L352 352L512 352C529.7 352 544 337.7 544 320C544 302.3 529.7 288 512 288L352 288L352 128z"/>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5"
+                    viewBox="0 0 640 640"
+                  >
+                    <path
+                      d="M352 128C352 110.3 337.7 96 320 96C302.3 96 288 110.3 288 128L288 288L128 288C110.3 288 96 302.3 96 320C96 337.7 110.3 352 128 352L288 352L288 512C288 529.7 302.3 544 320 544C337.7 544 352 529.7 352 512L352 352L512 352C529.7 352 544 337.7 544 320C544 302.3 529.7 288 512 288L352 288L352 128z"
+                    />
                   </svg>
                 </template>
-                <template x-if="open === 1">
+                <template x-if="expanded === 1">
                   <!-- Minus icon -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5" viewBox="0 0 640 640">
-                    <path d="M96 320c0 17.7 14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-384 0c-17.7 0-32 14.3-32 32z"/>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5"
+                    viewBox="0 0 640 640"
+                  >
+                    <path
+                      d="M96 320c0 17.7 14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-384 0c-17.7 0-32 14.3-32 32z"
+                    />
                   </svg>
                 </template>
               </span>
             </div>
-            <p class="text-gray-700" x-show="open === 1" x-transition.duration.300ms>
+            <p
+              class="text-gray-700"
+              x-show="expanded === 1"
+              x-collapse
+            >
               My development process involves understanding client requirements,
               planning the project, designing wireframes, coding, testing, and
-              deployment. I prioritize communication and collaboration throughout
-              the process.
+              deployment. I prioritize communication and collaboration
+              throughout the process.
             </p>
           </div>
           <!-- Question 2 -->
           <div>
-            <div class="flex flex-row justify-between cursor-pointer"
-                @click="open === 2 ? open = null: open = 2">
+            <div
+              class="flex flex-row justify-between cursor-pointer"
+              @click="expanded === 2 ? expanded = null: expanded = 2"
+            >
               <h3 class="text-lg font-semibold mb-2">
                 Can you customize existing Shopify themes?
               </h3>
               <span>
-                <template x-if="open !== 2">
+                <template x-if="expanded !== 2">
                   <!-- Plus icon -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5" viewBox="0 0 640 640">
-                    <path d="M352 128C352 110.3 337.7 96 320 96C302.3 96 288 110.3 288 128L288 288L128 288C110.3 288 96 302.3 96 320C96 337.7 110.3 352 128 352L288 352L288 512C288 529.7 302.3 544 320 544C337.7 544 352 529.7 352 512L352 352L512 352C529.7 352 544 337.7 544 320C544 302.3 529.7 288 512 288L352 288L352 128z"/>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5"
+                    viewBox="0 0 640 640"
+                  >
+                    <path
+                      d="M352 128C352 110.3 337.7 96 320 96C302.3 96 288 110.3 288 128L288 288L128 288C110.3 288 96 302.3 96 320C96 337.7 110.3 352 128 352L288 352L288 512C288 529.7 302.3 544 320 544C337.7 544 352 529.7 352 512L352 352L512 352C529.7 352 544 337.7 544 320C544 302.3 529.7 288 512 288L352 288L352 128z"
+                    />
                   </svg>
                 </template>
-                <template x-if="open === 2">
+                <template x-if="expanded === 2">
                   <!-- Minus icon -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5" viewBox="0 0 640 640">
-                    <path d="M96 320c0 17.7 14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-384 0c-17.7 0-32 14.3-32 32z"/>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5"
+                    viewBox="0 0 640 640"
+                  >
+                    <path
+                      d="M96 320c0 17.7 14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-384 0c-17.7 0-32 14.3-32 32z"
+                    />
                   </svg>
                 </template>
               </span>
             </div>
-            <p class="text-gray-700" x-show="open === 2" x-transition.duration.300ms>
-              Yes, I can customize existing Shopify themes to match your brand identity and enhance functionality according to your specific needs.
+            <p
+              class="text-gray-700"
+              x-show="expanded === 2"
+              x-collapse
+            >
+              Yes, I can customize existing Shopify themes to match your brand
+              identity and enhance functionality according to your specific
+              needs.
             </p>
           </div>
           <!-- Question 3 -->
           <div>
-            <div class="flex flex-row justify-between cursor-pointer"
-                @click="open === 3 ? open = null: open = 3">
+            <div
+              class="flex flex-row justify-between cursor-pointer"
+              @click="expanded === 3 ? expanded = null: expanded = 3"
+            >
               <h3 class="text-lg font-semibold mb-2">
                 How do you ensure responsive design?
               </h3>
               <span>
-                <template x-if="open !== 3">
+                <template x-if="expanded !== 3">
                   <!-- Plus icon -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5" viewBox="0 0 640 640">
-                    <path d="M352 128C352 110.3 337.7 96 320 96C302.3 96 288 110.3 288 128L288 288L128 288C110.3 288 96 302.3 96 320C96 337.7 110.3 352 128 352L288 352L288 512C288 529.7 302.3 544 320 544C337.7 544 352 529.7 352 512L352 352L512 352C529.7 352 544 337.7 544 320C544 302.3 529.7 288 512 288L352 288L352 128z"/>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5"
+                    viewBox="0 0 640 640"
+                  >
+                    <path
+                      d="M352 128C352 110.3 337.7 96 320 96C302.3 96 288 110.3 288 128L288 288L128 288C110.3 288 96 302.3 96 320C96 337.7 110.3 352 128 352L288 352L288 512C288 529.7 302.3 544 320 544C337.7 544 352 529.7 352 512L352 352L512 352C529.7 352 544 337.7 544 320C544 302.3 529.7 288 512 288L352 288L352 128z"
+                    />
                   </svg>
                 </template>
-                <template x-if="open === 3">
+                <template x-if="expanded === 3">
                   <!-- Minus icon -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5" viewBox="0 0 640 640">
-                    <path d="M96 320c0 17.7 14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-384 0c-17.7 0-32 14.3-32 32z"/>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5"
+                    viewBox="0 0 640 640"
+                  >
+                    <path
+                      d="M96 320c0 17.7 14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-384 0c-17.7 0-32 14.3-32 32z"
+                    />
                   </svg>
                 </template>
               </span>
             </div>
-            <p class="text-gray-700" x-show="open === 3" x-transition.duration.300ms>
-              I use modern CSS frameworks like Tailwind CSS and media queries to create responsive layouts that adapt seamlessly to different screen sizes and devices.
+            <p
+              class="text-gray-700"
+              x-show="expanded === 3"
+              x-collapse
+            >
+              I use modern CSS frameworks like Tailwind CSS and media queries to
+              create responsive layouts that adapt seamlessly to different
+              screen sizes and devices.
             </p>
           </div>
-          
         </div>
       </div>
     </section>
@@ -622,9 +690,11 @@
     <!-- video section  -->
     <section class="relative">
       <!-- video section content -->
-      <div class="relative grid place-items-center min-h-screen"
-          x-data="{ isPlaying: false }"
-          x-ref="container">
+      <div
+        class="relative grid place-items-center min-h-screen"
+        x-data="{ isPlaying: false }"
+        x-ref="container"
+      >
         <video
           x-ref="video"
           class="video-container absolute top-0 left-0 w-full h-full object-cover -z-20"
@@ -641,7 +711,10 @@
           @click="isPlaying ? $refs.video.pause() : $refs.video.play(); isPlaying = !isPlaying"
           class="switch-btn absolute bottom-7 left-7 flex items-center justify-around bg-white border-0 w-30 h-8 rounded-md cursor-pointer"
         >
-        <span x-text="isPlaying ? 'Pause' : 'Play'" class="text-blue-600 font-semibold"></span>
+          <span
+            x-text="isPlaying ? 'Pause' : 'Play'"
+            class="text-blue-600 font-semibold"
+          ></span>
         </button>
       </div>
     </section>
@@ -735,12 +808,71 @@
     </section>
     <!-- end of contact section -->
 
-    <footer class="mt-8 bg-gray-300 relative"
-        x-data="{ showButton: false}"
-        x-init="window.addEventListener('scroll', () => {
+    <!-- location section -->
+    <section class="py-8 bg-gray-100 text-center">
+      <div>
+        <h1 class="text-3xl">
+          fetch API - updating part of the webpage without reloading
+        </h1>
+      </div>
+      <div class="flex flex-col justify-center items-center gap-3 mt-6">
+        <div class="grid grid-rows-2 gap-3 w-fit">
+          <input
+            type="text"
+            id="searchField"
+            value="akatsuki"
+            class="border border-gray-300 py-2 px-4 rounded-sm"
+          />
+          <button onclick="onGifClick()" id="gifBtn" class="button__primary">
+            New Giffy
+          </button>
+        </div>
+        <img src="#" id="gif" />
+      </div>
+
+      <!-- <button onclick="fetchData()">New user name</button>
+        <h4 id="userName"></h4> -->
+    </section>
+
+    <script>
+      // function fetchData() {
+      //   const userNameHolder = document.querySelector("#userName");
+      //   fetch("https://randomuser.me/api")
+      //     .then(res => res.json())
+      //     .then(data => {
+      //       userNameHolder.innerHTML = data.results[0].location.city;
+      //     })
+      // }
+
+      function onGifClick() {
+        const img = document.querySelector("#gif");
+        const btn = document.querySelector("#gifBtn");
+        const search = document.querySelector("#searchField");
+        debugger;
+        fetch(
+          `https://api.giphy.com/v1/gifs/translate?api_key=pH9WHztAm5Yt9v5VAziRzXhOBvblWf6m&s=` +
+            search.value,
+          {
+            mode: "cors",
+          }
+        )
+          .then((res) => res.json())
+          .then((response) => {
+            img.src = response.data.images.original.url;
+          });
+      }
+      onGifClick();
+    </script>
+
+    <!-- end of location section -->
+
+    <footer
+      class="mt-8 bg-gray-300 relative"
+      x-data="{ showButton: false}"
+      x-init="window.addEventListener('scroll', () => {
           showButton = window.scrollY > 560
         })"
-        >
+    >
       <div class="page-width py-6 border-t border-gray-300 text-center">
         <p class="text-gray-600">
           &copy; 2024 Fida Ali Zada. All rights reserved.
@@ -750,18 +882,26 @@
       <!-- back to the top -->
       <div class="fixed bottom-6 right-8">
         <button
-            :class="showButton ? 'opacity-100' : 'opacity-0' "
-            @click="window.scrollTo({top: 0, behavior: 'smooth'})"
-            class="backToTop transition-opacity opacity-0 duration-300 bg-blue-600 p-1.5 cursor-pointer rounded-full"
-            aria-label="Back to top">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M297.4 169.4C309.9 156.9 330.2 156.9 342.7 169.4L534.7 361.4C547.2 373.9 547.2 394.2 534.7 406.7C522.2 419.2 501.9 419.2 489.4 406.7L320 237.3L150.6 406.6C138.1 419.1 117.8 419.1 105.3 406.6C92.8 394.1 92.8 373.8 105.3 361.3L297.3 169.3z"/></svg>
+          :class="showButton ? 'opacity-100' : 'opacity-0' "
+          @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+          class="backToTop transition-opacity opacity-0 duration-300 bg-blue-600 p-1.5 cursor-pointer rounded-full"
+          aria-label="Back to top"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6"
+            viewBox="0 0 640 640"
+          >
+            <!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+            <path
+              d="M297.4 169.4C309.9 156.9 330.2 156.9 342.7 169.4L534.7 361.4C547.2 373.9 547.2 394.2 534.7 406.7C522.2 419.2 501.9 419.2 489.4 406.7L320 237.3L150.6 406.6C138.1 419.1 117.8 419.1 105.3 406.6C92.8 394.1 92.8 373.8 105.3 361.3L297.3 169.3z"
+            />
+          </svg>
         </button>
       </div>
     </footer>
 
-
     <!-- <script>
-
       const backToTopBtn = document.querySelector('.backToTop');
 
         window.addEventListener('scroll', () => {
@@ -777,8 +917,62 @@
         backToTopBtn.addEventListener('click', () => {
           window.scrollTo({ top: 0, behavior: 'smooth'})
         })
-
-
     </script> -->
+
+    <!-- The Fetch API interface allows web browser to make HTTP requests to web servers. -->
+    <!-- AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. -->
+    <!-- This means that it is possible to update parts of a web page, without reloading the whole page. -->
+    <!-- Modern Browsers can use Fetch API instead of the XMLHttpRequest Object. -->
+    <!-- The Fetch API interface allows web browser to make HTTP requests to web servers. -->
+    <!-- If you use the XMLHttpRequest Object, Fetch can do the same in a simpler way. -->
+    <!-- GET is simpler and faster than POST, and can be used in most cases -->
+
+    <!-- JSON is used to send, receive and store data -->
+    <!-- Convert JSON strings into JS objects: -->
+    <!-- JSON.parse() -->
+
+    <!-- Convert an object into a JSON string: -->
+    <!-- JSON.stringify() -->
+
+    <!-- A common use of JSON is to exchange data to/from a web server -->
+    <!-- When receiving data from a web server, the data is always a string/ (JSON string) -->
+
+    <!-- To send AJAX requests using the POST method, specify the method, and the correct header -->
+
+    <script>
+
+      // const obj = { "limit": 5 };
+      // const dbParam = JSON.stringify(obj);
+
+      // fetch("json_demo_db.php?x=" + dbParam)
+      //   .then(res => res.text())
+      //   .then(str => {
+      //     const myObj = JSON.parse(str);
+      //       let text = '';
+      //       for (let i in myObj) {
+      //         text += myObj[i].name + "<br>";
+      //       }
+      //       alert(text);
+      //   })
+
+      // const dbParam = JSON.stringify({"limit":10});
+
+      // fetch("json_demo_db_post.php", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/x-www-form-urlencoded"
+      //   },
+      //   body: "x=" + encodeURIComponent(dbParam)
+      // })
+      //   .then(res => res.text())
+      //   .then(str => {
+      //     const data = JSON.parse(str);
+      //     let text = '';
+      //     for (const i in data) {
+      //       text += data[i].name + "<br>";
+      //     }
+      //     document.getElementById("demo").innerHTML = text;
+      //   })
+    </script>
   </body>
 </html>
